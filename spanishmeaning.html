@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Spanish Words & Sentences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex h-screen justify-center items-center">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 text-center">
+        <div class="bg-white p-8 rounded shadow-md">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">Learn Spanish Words & Sentences</h1>
+            <p class="text-lg mb-4">Click on a word or sentence to hear and see its meaning.</p>
+
+            <!-- Display Meaning -->
+            <div id="meaning-box" class="text-xl font-semibold text-blue-500 mb-4"></div>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-4">Common Words</h2>
+            <div class="grid grid-cols-3 gap-4 mt-2">
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="hola" data-meaning="Hello">Hola</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="gracias" data-meaning="Thank you">Gracias</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="adios" data-meaning="Goodbye">Adiós</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="por_favor" data-meaning="Please">Por favor</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="lo_siento" data-meaning="Sorry">Lo siento</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="si" data-meaning="Yes">Sí</button>
+                <button class="word-btn bg-yellow-400 text-white px-4 py-2 rounded" data-word="no" data-meaning="No">No</button>
+            </div>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6">Common Sentences</h2>
+            <div class="grid grid-cols-2 gap-4 mt-2">
+                <button class="sentence-btn bg-green-500 text-white px-4 py-2 rounded" data-sentence="como_estas" data-meaning="How are you?">¿Cómo estás?</button>
+                <button class="sentence-btn bg-green-500 text-white px-4 py-2 rounded" data-sentence="me_llamo" data-meaning="My name is Juan.">Me llamo Juan.</button>
+                <button class="sentence-btn bg-green-500 text-white px-4 py-2 rounded" data-sentence="cuanto_cuesta" data-meaning="How much does it cost?">¿Cuánto cuesta?</button>
+                <button class="sentence-btn bg-green-500 text-white px-4 py-2 rounded" data-sentence="donde_esta" data-meaning="Where is the bathroom?">¿Dónde está el baño?</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const meaningBox = document.getElementById("meaning-box");
+
+        // Function to play audio & display meaning for words
+        document.querySelectorAll('.word-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const word = this.getAttribute('data-word');
+                const meaning = this.getAttribute('data-meaning');
+                meaningBox.innerText = `📖 Meaning: ${meaning}`;
+                const audio = new Audio(`audio/spanish/words/${word}.mp3`);
+                audio.play();
+            });
+        });
+
+        // Function to play audio & display meaning for sentences
+        document.querySelectorAll('.sentence-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const sentence = this.getAttribute('data-sentence');
+                const meaning = this.getAttribute('data-meaning');
+                meaningBox.innerText = `📖 Meaning: ${meaning}`;
+                const audio = new Audio(`audio/spanish/sentences/${sentence}.mp3`);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

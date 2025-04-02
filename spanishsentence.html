@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex h-screen justify-center items-center">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 text-center">
+        <div class="bg-white p-8 rounded shadow-md">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">Spanish Pronunciation</h1>
+            <p class="text-lg mb-4">Click on a word or sentence to hear its pronunciation.</p>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-4">Common Words</h2>
+            <div class="grid grid-cols-3 gap-4 mt-2">
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="hola">Hola</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="gracias">Gracias</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="adios">Adiós</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="por_favor">Por favor</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="lo_siento">Lo siento</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="si">Sí</button>
+                <button class="pronounce-btn bg-yellow-400 text-white px-4 py-2 rounded" data-audio="no">No</button>
+            </div>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6">Common Sentences</h2>
+            <div class="grid grid-cols-2 gap-4 mt-2">
+                <button class="pronounce-btn bg-green-500 text-white px-4 py-2 rounded" data-audio="como_estas">¿Cómo estás?</button>
+                <button class="pronounce-btn bg-green-500 text-white px-4 py-2 rounded" data-audio="me_llamo">Me llamo Juan.</button>
+                <button class="pronounce-btn bg-green-500 text-white px-4 py-2 rounded" data-audio="cuanto_cuesta">¿Cuánto cuesta?</button>
+                <button class="pronounce-btn bg-green-500 text-white px-4 py-2 rounded" data-audio="donde_esta">¿Dónde está el baño?</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.pronounce-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const audioFile = this.getAttribute('data-audio');
+                const audio = new Audio(`audio/spanish/${audioFile}.mp3`);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Words & Meanings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex h-screen">
+    
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 flex justify-center items-center w-3/4">
+        <div class="bg-white p-8 rounded shadow-md text-center">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">English Words & Meanings (Tamil)</h1>
+            <p class="text-lg mb-4">Click on a word to see its meaning in Tamil.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Hello" data-meaning="வணக்கம்">Hello</button>
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Grateful" data-meaning="நன்றி உணர்வுள்ள">Grateful</button>
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Courage" data-meaning="தைரியம்">Courage</button>
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Wisdom" data-meaning="ஞானம்">Wisdom</button>
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Inspire" data-meaning="உத்வேகம் அளிக்க">Inspire</button>
+                <button class="meaning-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="Kindness" data-meaning="அன்பு மற்றும் கருணை">Kindness</button>
+            </div>
+            <p id="meaning-display" class="mt-4 text-lg font-bold text-blue-700"></p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.meaning-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const meaning = this.getAttribute('data-meaning');
+                document.getElementById('meaning-display').textContent = meaning;
+            });
+        });
+    </script>
+</body>
+</html>

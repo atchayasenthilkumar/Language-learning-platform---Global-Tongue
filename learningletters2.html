@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Japanese Letters & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex h-screen">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 flex justify-center items-center w-3/4">
+        <div class="bg-white p-8 rounded shadow-md text-center">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">Learn Japanese Letters & Pronunciation</h1>
+            <p class="text-lg mb-4">Click on a letter to hear its pronunciation.</p>
+            <div class="grid grid-cols-3 gap-4">
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="あ" data-pronunciation="a">あ</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="い" data-pronunciation="i">い</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="う" data-pronunciation="u">う</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="え" data-pronunciation="e">え</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="お" data-pronunciation="o">お</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="か" data-pronunciation="ka">か</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="き" data-pronunciation="ki">き</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="く" data-pronunciation="ku">く</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="け" data-pronunciation="ke">け</button>
+                <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="こ" data-pronunciation="ko">こ</button>
+            </div>
+            <p id="pronunciation-display" class="mt-4 text-lg font-bold text-blue-700"></p>
+        </div>
+    </div>
+
+    <script>
+        // Mapping of pronunciation sounds for hiragana letters
+        const pronunciations = {
+            "a": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/a.mp3",
+            "i": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/i.mp3",
+            "u": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/u.mp3",
+            "e": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/e.mp3",
+            "o": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/o.mp3",
+            "ka": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/ka.mp3",
+            "ki": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/ki.mp3",
+            "ku": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/ku.mp3",
+            "ke": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/ke.mp3",
+            "ko": "https://www.japanesepod101.com/wp-content/plugins/wp-japanese-pod101/wp-content/audio/words/ko.mp3"
+        };
+
+        document.querySelectorAll('.letter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const pronunciation = this.getAttribute('data-pronunciation');
+                const letter = this.getAttribute('data-letter');
+                document.getElementById('pronunciation-display').textContent = `Pronunciation: ${pronunciation}`;
+                
+                // Play audio from the pre-defined pronunciation mapping
+ 
+                const audio = new Audio(pronunciations[pronunciation]);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

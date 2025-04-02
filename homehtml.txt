@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Learning Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-image {
+      background-image: url('C:/Users/ATCHAYA S/Downloads/langimg1.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="container mx-auto p-6 text-center">
+    <h1 class="text-5xl font-bold text-green-600 mb-4">Global Tongue</h1>
+    
+    <!-- Navigation -->
+    <nav class="mt-4 flex justify-center space-x-4">
+      <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/dashboard.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Dashboard</a>
+      <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/loginpage.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Login</a>
+      <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/aboutpage.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">About us</a>
+      <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/feedback.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Feedback</a>
+    </nav>
+</body>
+</html>

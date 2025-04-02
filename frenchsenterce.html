@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Words & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="container bg-white p-8 rounded shadow-md text-center max-w-lg">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">French Words & Pronunciation</h1>
+        <p class="text-lg mb-4">Click on a word to hear its pronunciation.</p>
+        <div class="grid grid-cols-2 gap-4">
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="bonjour">Bonjour (Hello)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="merci">Merci (Thank you)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="oui">Oui (Yes)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="non">Non (No)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="s'il vous plaît">S'il vous plaît (Please)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="excusez-moi">Excusez-moi (Excuse me)</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.word-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const word = this.getAttribute('data-word');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${word.replace(/ /g, '_')}--_fr_1.mp3`);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

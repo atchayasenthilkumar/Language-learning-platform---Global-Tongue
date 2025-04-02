@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Sentences & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="container bg-white p-8 rounded shadow-md text-center max-w-lg">
+        <h1 class="text-2xl font-bold text-green-600 mb-4">French Sentences & Pronunciation</h1>
+        <p class="text-lg mb-4">Click on a sentence to hear its pronunciation and see the Tamil meaning.</p>
+        <div class="grid grid-cols-1 gap-4">
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="bonjour_comment_ca_va" data-tamil="வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?">Bonjour, comment ça va? (Hello, how are you?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="je_mappelle" data-tamil="என் பெயர் பியர்.">Je m'appelle Pierre. (My name is Pierre.)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="ou_est_la_gare" data-tamil="ரயில் நிலையம் எங்கே?">Où est la gare? (Where is the train station?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="merci_beaucoup" data-tamil="மிக்க நன்றி!">Merci beaucoup! (Thank you very much!)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="pouvez_vous_maider" data-tamil="நீங்கள் எனக்கு உதவ முடியுமா?">Pouvez-vous m'aider? (Can you help me?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="quelle_heure_est_il" data-tamil="இப்போது மணி என்ன?">Quelle heure est-il? (What time is it?)</button>
+        </div>
+        <div id="tamil-meaning" class="text-xl font-semibold text-red-600 mt-4"></div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.sentence-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const sentence = this.getAttribute('data-sentence');
+                const tamilMeaning = this.getAttribute('data-tamil');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${sentence}--_fr_1.mp3`);
+                audio.play();
+                document.getElementById("tamil-meaning").innerText = tamilMeaning;
+            });
+        });
+    </script>
+
+</body>
+</html>

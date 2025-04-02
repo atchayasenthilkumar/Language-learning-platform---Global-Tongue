@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Language Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Quiz Container -->
+    <div class="container mx-auto p-6 w-3/4">
+        <div class="bg-white p-8 rounded shadow-md text-center">
+            <h1 class="text-3xl font-bold text-green-600 mb-4">Language Learning Quiz</h1>
+
+            <!-- Quiz Form -->
+            <form id="quiz-form">
+                <div class="mb-4">
+                    <p class="text-lg font-semibold">1. What does "Hello" mean?</p>
+                    <div class="space-y-2">
+                        <label class="block">
+                            <input type="radio" name="q1" value="A greeting"> A greeting
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q1" value="Goodbye"> Goodbye
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q1" value="Thank you"> Thank you
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-lg font-semibold">2. What is the meaning of "Grateful"?</p>
+                    <div class="space-y-2">
+                        <label class="block">
+                            <input type="radio" name="q2" value="Feeling or showing appreciation"> Feeling or showing appreciation
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q2" value="Being kind"> Being kind
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q2" value="Feeling sad"> Feeling sad
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-lg font-semibold">3. What does "Courage" mean?</p>
+                    <div class="space-y-2">
+                        <label class="block">
+                            <input type="radio" name="q3" value="The ability to do something that frightens one"> The ability to do something that frightens one
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q3" value="Feeling strong"> Feeling strong
+                        </label>
+                        <label class="block">
+                            <input type="radio" name="q3" value="Running fast"> Running fast
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <button type="button" class="px-6 py-2 bg-blue-500 text-white rounded" onclick="checkAnswers()">Submit</button>
+                </div>
+            </form>
+
+            <!-- Result -->
+            <div id="result" class="mt-4 text-lg font-bold text-blue-700"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const form = document.getElementById('quiz-form');
+            let score = 0;
+
+            // Correct answers
+            const correctAnswers = {
+                q1: "A greeting",
+                q2: "Feeling or showing appreciation",
+                q3: "The ability to do something that frightens one"
+            };
+
+            // Check answers
+            for (let question in correctAnswers) {
+                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the result
+            const result = document.getElementById('result');
+            result.textContent = `You scored ${score} out of 3!`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Japanese Words & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .word-btn {
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .word-btn:hover {
+            background-color: #45a049;
+        }
+
+        .word-btn:active {
+            background-color: #3e8e41;
+        }
+
+        .word-btn:disabled {
+            background-color: #c1c1c1;
+            cursor: not-allowed;
+        }
+
+        #audio-player {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex justify-center items-center h-screen">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <h1 class="text-3xl font-bold text-green-600 mb-4">Learn Japanese Words & Meaning</h1>
+            
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Words List -->
+                <button class="word-btn" data-word="こんにちは" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/hello.mp3">こんにちは (Hello)</button>
+                <button class="word-btn" data-word="ありがとう" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/thank_you.mp3">ありがとう (Thank You)</button>
+                <button class="word-btn" data-word="さようなら" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/goodbye.mp3">さようなら (Goodbye)</button>
+                <button class="word-btn" data-word="すみません" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/excuse_me.mp3">すみません (Excuse Me)</button>
+                <button class="word-btn" data-word="おはよう" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/good_morning.mp3">おはよう (Good Morning)</button>
+                <button class="word-btn" data-word="こんばんは" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/good_evening.mp3">こんばんは (Good Evening)</button>
+            </div>
+</body>
+</html>

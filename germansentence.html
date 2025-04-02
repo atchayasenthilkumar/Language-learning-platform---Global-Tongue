@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Words & Sentences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-center items-center min-h-screen p-6">
+
+    <div class="container bg-white p-8 rounded shadow-md text-center max-w-lg mb-8">
+        <h1 class="text-2xl font-bold text-green-600 mb-4">German Words & Sentences</h1>
+        <p class="text-lg mb-4">Click on a word or sentence to hear its pronunciation.</p>
+        <div class="grid grid-cols-1 gap-4">
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="hallo">Hallo (Hello)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="danke">Danke (Thank you)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="bitte">Bitte (Please / You're welcome)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="entschuldigung">Entschuldigung (Excuse me / Sorry)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="auf_wiedersehen">Auf Wiedersehen (Goodbye)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wie_geht_es_dir">Wie geht es dir? (How are you?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="ich_heisse">Ich heiße Anna. (My name is Anna.)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wo_ist_der_bahnhof">Wo ist der Bahnhof? (Where is the train station?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="koennen_sie_mir_helfen">Können Sie mir helfen? (Can you help me?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wie_spaet_ist_es">Wie spät ist es? (What time is it?)</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.word-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const word = this.getAttribute('data-word');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${word}--_de_1.mp3`);
+                audio.play();
+            });
+        });
+
+        document.querySelectorAll('.sentence-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const sentence = this.getAttribute('data-sentence');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${sentence}--_de_1.mp3`);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Letters Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .letters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .letter-box {
+            background: lightblue;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>Spanish Letters Chart</h2>
+        <div class="letters" id="letters"></div>
+    </div>
+
+    <script>
+        const lettersWithAudio = {
+            "A": "a.mp3", "B": "b.mp3", "C": "c.mp3", "D": "d.mp3", "E": "e.mp3",
+            "F": "f.mp3", "G": "g.mp3", "H": "h.mp3", "I": "i.mp3", "J": "j.mp3",
+            "K": "k.mp3", "L": "l.mp3", "M": "m.mp3", "N": "n.mp3", "Ñ": "n_tilde.mp3",
+            "O": "o.mp3", "P": "p.mp3", "Q": "q.mp3", "R": "r.mp3", "S": "s.mp3",
+            "T": "t.mp3", "U": "u.mp3", "V": "v.mp3", "W": "w.mp3", "X": "x.mp3",
+            "Y": "y.mp3", "Z": "z.mp3"
+        };
+
+        function loadLetters(containerId, letters) {
+            const container = document.getElementById(containerId);
+            Object.keys(letters).forEach(letter => {
+                const div = document.createElement('div');
+                div.classList.add('letter-box');
+                div.innerText = letter;
+                div.onclick = () => playAudio(letters[letter]);
+                container.appendChild(div);
+            });
+        }
+
+        function playAudio(file) {
+            const audio = new Audio(`audio/spanish/${file}`);
+            audio.play();
+        }
+
+        loadLetters('letters', lettersWithAudio);
+    </script>
+<script src="https://studyspanish.com/wp-content/plugins/ss_general/js/pronunciation-sounds.js?x55554" id=ss-action-pron-sounds-js-js type="e3d3275e4ea1ec6119397a99-text/javascript"></script>
+</body>
+</html>

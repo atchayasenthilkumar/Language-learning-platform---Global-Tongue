@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Language Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+<center>
+    <!-- Main Content --><br>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-6 flex justify-center items-center w-3/4">
+        <div class="bg-white p-8 rounded shadow-md w-96 text-center">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">Sign Up</h1>
+            <form id="signup-form" class="space-y-4">
+                <div>
+                    <label for="firstname" class="block text-left font-medium">First Name</label>
+                    <input type="text" id="firstname" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="lastname" class="block text-left font-medium">Last Name</label>
+                    <input type="text" id="lastname" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-left font-medium">Email</label>
+                    <input type="email" id="email" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-left font-medium">Create Password</label>
+                    <input type="password" id="password" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-left font-medium">Confirm Password</label>
+                    <input type="password" id="password" class="w-full p-2 border rounded" required>
+                </div>
+
+                <button type="submit" class="w-full bg-green-500 text-white px-4 py-2 rounded">Sign Up</button>
+            </form>
+            <p class="mt-4">Already have an account? <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/loginpage.html" class="text-blue-500">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Sign Up successful!");
+        });
+    </script>
+</body>
+</html>

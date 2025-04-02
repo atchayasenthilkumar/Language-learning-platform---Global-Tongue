@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Letters & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-center items-center min-h-screen p-6">
+
+    <div class="container bg-white p-8 rounded shadow-md text-center max-w-lg mb-8">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">German Letters & Pronunciation</h1>
+        <p class="text-lg mb-4">Click on a letter to hear its pronunciation.</p>
+        <div class="grid grid-cols-4 gap-4">
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="a">A</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="b">B</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="c">C</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="d">D</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="e">E</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="f">F</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="g">G</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="h">H</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="i">I</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="j">J</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="k">K</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="l">L</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="m">M</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="n">N</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="o">O</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="p">P</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="q">Q</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="r">R</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="s">S</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="t">T</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="u">U</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="v">V</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="w">W</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="x">X</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="y">Y</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="z">Z</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="ä">Ä</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="ö">Ö</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="ü">Ü</button>
+            <button class="letter-btn bg-blue-500 text-white px-4 py-2 rounded" data-letter="ß">ß</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.letter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const letter = this.getAttribute('data-letter');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${letter}--_de_1.mp3`);
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

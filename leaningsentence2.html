@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Japanese Words & Pronunciation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .word-btn {
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #2563EB;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .word-btn:hover {
+            background-color: #1D4ED8;
+        }
+
+        .word-btn:active {
+            background-color: #3e8e41;
+        }
+
+        .word-btn:disabled {
+            background-color: #c1c1c1;
+            cursor: not-allowed;
+        }
+
+        #audio-player {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex justify-center items-center h-screen">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <h1 class="text-3xl font-bold text-green-600 mb-4">Learn Japanese Words & Pronunciation</h1>
+            <p class="text-lg mb-4">Click on a word to hear its pronunciation.</p>
+
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Words List -->
+                <button class="word-btn" data-word="こんにちは" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/hello.mp3">こんにちは </button>
+                <button class="word-btn" data-word="ありがとう" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/thank_you.mp3">ありがとう </button>
+                <button class="word-btn" data-word="さようなら" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/goodbye.mp3">さようなら </button>
+                <button class="word-btn" data-word="すみません" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/excuse_me.mp3">すみません</button>
+                <button class="word-btn" data-word="おはよう" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/good_morning.mp3">おはよう </button>
+                <button class="word-btn" data-word="こんばんは" data-audio="https://raw.githubusercontent.com/Japanese-Genki/vocab/master/audio/good_evening.mp3">こんばんは </button>
+            </div>
+
+            <div id="audio-player" class="mt-6">
+                <audio id="audio" controls>
+                    <source id="audio-source" src="" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all word buttons
+        const wordButtons = document.querySelectorAll('.word-btn');
+        const audioPlayer = document.getElementById('audio');
+        const audioSource = document.getElementById('audio-source');
+
+        // Add event listener to each button
+        wordButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Get the audio URL from the button's data attribute
+                const audioURL = this.getAttribute('data-audio');
+                
+                // Set the audio source to the corresponding word's pronunciation URL
+                audioSource.setAttribute('src', audioURL);
+                
+                // Play the audio
+                audioPlayer.load();
+                audioPlayer.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

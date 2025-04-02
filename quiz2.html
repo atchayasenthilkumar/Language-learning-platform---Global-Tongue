@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: blue700;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: lightblue;
+        }
+        .options button:hover {
+            background-color: lightblue;
+        }
+        .correct { background-color: #8bc34a !important; }
+        .incorrect { background-color: #f44336 !important; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Loading...</h2>
+        <div class="options" id="options"></div>
+        <p id="score" style="margin-top: 20px;"></p>
+    </div>
+    <script>
+        const quizData = [
+            { question: "What is the Hiragana for 'Hello'?", options: ["こんにちは", "さようなら", "ありがとう", "すみません"], answer: "こんにちは" },
+            { question: "What does 'ありがとう' mean?", options: ["Sorry", "Thank you", "Good morning", "Goodbye"], answer: "Thank you" },
+            { question: "What is the Kanji for 'Water'?", options: ["火", "水", "木", "金"], answer: "水" }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestion >= quizData.length) {
+                document.getElementById('question').innerText = "Quiz Completed!";
+                document.getElementById('options').innerHTML = '';
+                document.getElementById('score').innerText = `Your score: ${score} / ${quizData.length}`;
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            document.getElementById('question').innerText = q.question;
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            q.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.onclick = () => checkAnswer(button, option);
+                optionsDiv.appendChild(button);
+            });
+        }
+
+        function checkAnswer(button, selectedOption) {
+            const correctAnswer = quizData[currentQuestion].answer;
+            if (selectedOption === correctAnswer) {
+                button.classList.add('correct');
+                score++;
+            } else {
+                button.classList.add('incorrect');
+            }
+            setTimeout(() => {
+                currentQuestion++;
+                loadQuestion();
+            }, 1000);
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

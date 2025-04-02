@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Words & Sentences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-center items-center min-h-screen p-6">
+
+    <div class="container bg-white p-8 rounded shadow-md text-center max-w-lg mb-8">
+        <h1 class="text-2xl font-bold text-green-600 mb-4">German Words & Sentences</h1>
+        <p class="text-lg mb-4">Click on a word or sentence to hear its pronunciation and see the Tamil meaning.</p>
+        <div class="grid grid-cols-1 gap-4">
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="hallo" data-meaning="வணக்கம்">Hallo (Hello)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="danke" data-meaning="நன்றி">Danke (Thank you)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="bitte" data-meaning="தயவுசெய்து / உங்களுக்கு வரவேற்கிறேன்">Bitte (Please / You're welcome)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="entschuldigung" data-meaning="மன்னிக்கவும்">Entschuldigung (Excuse me / Sorry)</button>
+            <button class="word-btn bg-blue-500 text-white px-4 py-2 rounded" data-word="auf_wiedersehen" data-meaning="பிரிந்து செல்வதற்காக வாழ்த்துக்கள்">Auf Wiedersehen (Goodbye)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wie_geht_es_dir" data-meaning="நீங்கள் எப்படி இருக்கிறீர்கள்?">Wie geht es dir? (How are you?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="ich_heisse" data-meaning="என் பெயர் அன்னா.">Ich heiße Anna. (My name is Anna.)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wo_ist_der_bahnhof" data-meaning="ரயில் நிலையம் எங்கே?">Wo ist der Bahnhof? (Where is the train station?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="koennen_sie_mir_helfen" data-meaning="நீங்கள் எனக்கு உதவ முடியுமா?">Können Sie mir helfen? (Can you help me?)</button>
+            <button class="sentence-btn bg-blue-500 text-white px-4 py-2 rounded" data-sentence="wie_spaet_ist_es" data-meaning="இது என்ன நேரம்?">Wie spät ist es? (What time is it?)</button>
+        </div>
+        <p id="meaning" class="text-xl font-semibold text-red-600 mt-4 hidden"></p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.word-btn, .sentence-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const text = this.getAttribute('data-word') || this.getAttribute('data-sentence');
+                const meaning = this.getAttribute('data-meaning');
+                const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${text}--_de_1.mp3`);
+                audio.play();
+                
+                const meaningElement = document.getElementById("meaning");
+                meaningElement.innerText = meaning;
+                meaningElement.classList.remove("hidden");
+            });
+        });
+    </script>
+
+</body>
+</html>

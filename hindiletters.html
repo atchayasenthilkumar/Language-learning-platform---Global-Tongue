@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Letters Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .category {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .letters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .letter-box {
+            background: lightgreen;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>Hindi Letters Chart</h2>
+        
+        <div class="category">Vowels (स्वर)</div>
+        <div class="letters" id="vowels"></div>
+        
+        <div class="category">Consonants (व्यंजन)</div>
+        <div class="letters" id="consonants"></div>
+        
+        <div class="category">Special Consonants</div>
+        <div class="letters" id="special"></div>
+    </div>
+
+    <script>
+        const lettersWithAudio = {
+            "अ": "a.mp3", "आ": "aa.mp3", "इ": "i.mp3", "ई": "ii.mp3", "उ": "u.mp3", "ऊ": "uu.mp3", "ए": "e.mp3", "ऐ": "ai.mp3", "ओ": "o.mp3", "औ": "au.mp3", "अं": "an.mp3", "अः": "ah.mp3",
+            "क": "ka.mp3", "ख": "kha.mp3", "ग": "ga.mp3", "घ": "gha.mp3", "ङ": "nga.mp3", "च": "cha.mp3", "छ": "chha.mp3", "ज": "ja.mp3", "झ": "jha.mp3", "ञ": "nya.mp3", "ट": "tta.mp3", "ठ": "ttha.mp3", "ड": "dda.mp3", "ढ": "ddha.mp3", "ण": "nna.mp3",
+            "त": "ta.mp3", "थ": "tha.mp3", "द": "da.mp3", "ध": "dha.mp3", "न": "na.mp3", "प": "pa.mp3", "फ": "pha.mp3", "ब": "ba.mp3", "भ": "bha.mp3", "म": "ma.mp3", "य": "ya.mp3", "र": "ra.mp3", "ल": "la.mp3", "व": "va.mp3", "श": "sha.mp3", "ष": "ssa.mp3", "स": "sa.mp3", "ह": "ha.mp3",
+            "क्ष": "ksha.mp3", "त्र": "tra.mp3", "ज्ञ": "gya.mp3"
+        };
+
+        function loadLetters(containerId, letters) {
+            const container = document.getElementById(containerId);
+            letters.forEach(letter => {
+                const div = document.createElement('div');
+                div.classList.add('letter-box');
+                div.innerText = letter;
+                div.onclick = () => playAudio(letter);
+                container.appendChild(div);
+            });
+        }
+
+        function playAudio(letter) {
+            if (lettersWithAudio[letter]) {
+                const audio = new Audio(`audio/${lettersWithAudio[letter]}`);
+                audio.play();
+            }
+        }
+
+        loadLetters('vowels', Object.keys(lettersWithAudio).slice(0, 12));
+        loadLetters('consonants', Object.keys(lettersWithAudio).slice(12, 44));
+        loadLetters('special', Object.keys(lettersWithAudio).slice(44));
+    </script>
+</body>
+</html>

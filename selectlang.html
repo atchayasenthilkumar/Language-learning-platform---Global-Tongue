@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Language - Language Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 flex h-screen">
+   
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 flex justify-center items-center w-3/4">
+        <div class="bg-white p-8 rounded shadow-md text-center w-96">
+            <h1 class="text-2xl font-bold text-green-600 mb-4">Select Your Language</h1>
+            <div id="language-selection" class="grid grid-cols-2 gap-4">
+
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="English"><a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/learningpage.html">English</button>
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="Japanese"><a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/learningpage2.html">Japanese</button>
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="Hindi"><a href ="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/hindi.html ">Hindi</button>
+
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="Spanish"><a href ="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/spanish.html">Spanish</button>
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="French"><a href ="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/french.html">French</button>
+                <button class="language-btn px-4 py-2 bg-blue-500 text-white rounded" data-lang="German"><a href ="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/german.html ">German</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.language-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedLanguage = this.getAttribute('data-lang');
+                alert(`You selected ${selectedLanguage}! `);
+            });
+        });
+    </script>
+</body>
+</html>

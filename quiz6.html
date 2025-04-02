@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="quiz-container bg-white p-8 rounded shadow-md text-center max-w-lg">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">German Quiz</h1>
+        <div id="question" class="text-xl font-semibold mb-4"></div>
+        <div id="options" class="grid grid-cols-1 gap-4"></div>
+        <div id="score" class="text-lg font-bold mt-6">Score: 0</div>
+        <div id="result" class="text-xl font-bold mt-6 hidden"></div>
+        <button id="restart" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hidden" onclick="restartQuiz()">Restart</button>
+    </div>
+
+    <script>
+        const quizData = [
+            { 
+                question: "What does 'Hallo' mean?", 
+                options: ["Hello", "Goodbye", "Please"], 
+                answer: "Hello", 
+                audio: "hallo" 
+            },
+            { 
+                question: "What does 'Danke' mean?", 
+                options: ["Yes", "Thank you", "Excuse me"], 
+                answer: "Thank you", 
+                audio: "danke" 
+            },
+            { 
+                question: "What does 'Wie geht es dir?' mean?", 
+                options: ["Where is it?", "How are you?", "What time is it?"], 
+                answer: "How are you?", 
+                audio: "wie_geht_es_dir" 
+            },
+            { 
+                question: "What does 'Auf Wiedersehen' mean?", 
+                options: ["Please", "Goodbye", "Hello"], 
+                answer: "Goodbye", 
+                audio: "auf_wiedersehen" 
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestion >= quizData.length) {
+                document.getElementById("question").innerText = "Quiz Complete!";
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("result").innerText = `Your Final Score: ${score} / ${quizData.length}`;
+                document.getElementById("result").classList.remove("hidden");
+                document.getElementById("restart").classList.remove("hidden");
+                return;
+            }
+
+            const questionData = quizData[currentQuestion];
+            document.getElementById("question").innerText = questionData.question;
+            document.getElementById("options").innerHTML = "";
+
+            questionData.options.forEach(option => {
+                const button = document.createElement("button");
+                button.classList.add("bg-blue-500", "text-white", "px-4", "py-2", "rounded", "w-full");
+                button.innerText = option;
+                button.onclick = () => checkAnswer(option, questionData.audio);
+                document.getElementById("options").appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption, audioFile) {
+            if (selectedOption === quizData[currentQuestion].answer) {
+                score++;
+            }
+
+            const audio = new Audio(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${audioFile}--_de_1.mp3`);
+            audio.play();
+
+            currentQuestion++;
+            document.getElementById("score").innerText = "Score: " + score;
+            setTimeout(loadQuestion, 1000);
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById("score").innerText = "Score: 0";
+            document.getElementById("result").classList.add("hidden");
+            document.getElementById("restart").classList.add("hidden");
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>

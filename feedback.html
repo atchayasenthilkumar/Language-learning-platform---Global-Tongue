@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Language Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .star-rating input[type="radio"]:checked ~ label,
+        .star-rating input[type="radio"]:hover ~ label {
+            color: #f5a623;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #f5a623;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-green-600">Give Us Your Feedback</h1>
+            <p class="text-lg mt-2 text-gray-700">We'd love to hear your thoughts and suggestions to help us improve!</p>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">Rate Your Experience</h2>
+
+            <!-- Star Rating System -->
+            <form id="feedback-form">
+                <div class="star-rating flex justify-center mb-4">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">★</label>
+                </div>
+
+                <div class="mb-4">
+                    <label for="feedback" class="block text-lg text-gray-700 mb-2">Your Comments</label>
+                    <textarea id="feedback" name="feedback" rows="4" class="w-full p-3 rounded border border-gray-300" placeholder="Tell us about your experience..." required></textarea>
+                </div>
+
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded shadow-md">Submit Feedback</button>
+            </form>
+        </div>
+
+        <!-- Confirmation Message -->
+        <div id="confirmation-message" class="hidden bg-green-200 text-green-700 p-4 rounded-lg">
+            <p>Your feedback has been submitted successfully. Thank you!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the selected rating
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const feedbackText = document.getElementById('feedback').value;
+
+            if (rating && feedbackText) {
+                // Show confirmation message
+                document.getElementById('confirmation-message').classList.remove('hidden');
+                
+                // Log the rating and feedback (or send to a server)
+                console.log(`Rating: ${rating.value}`);
+                console.log(`Feedback: ${feedbackText}`);
+
+                // Clear the form
+                document.getElementById('feedback-form').reset();
+            } else {
+                alert('Please select a rating and provide your feedback.');
+            }
+        });
+    </script>
+
+</body>
+</html>
