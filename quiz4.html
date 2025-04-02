@@ -6,6 +6,7 @@
     <title>Spanish Quiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 flex justify-center items-center h-screen">
 
     <div class="quiz-container bg-white p-8 rounded shadow-md text-center max-w-lg">
@@ -15,31 +16,36 @@
         <div id="score" class="text-lg font-bold mt-6">Score: 0</div>
         <div id="result" class="text-xl font-bold mt-6 hidden"></div>
         <button id="restart" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hidden" onclick="restartQuiz()">Restart</button>
+
+<button type ="button" class="px-6 py-2 bg-blue-500 text-white rounded">
+<a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/selectlang.html">Back
+</button>
+
     </div>
 
     <script>
         const quizData = [
             { 
                 question: "What does 'Hola' mean?", 
-                options: ["Hello", "Goodbye", "Please"], 
+                options: ["Hello", "Goodbye", "Please" , "Welcome!"], 
                 answer: "Hello", 
                 audio: "hola" 
             },
             { 
                 question: "What does 'Gracias' mean?", 
-                options: ["Yes", "Thank you", "Excuse me"], 
+                options: ["Yes", "Thank you", "Excuse me","Hello"], 
                 answer: "Thank you", 
                 audio: "gracias" 
             },
             { 
                 question: "What does '¿Cómo estás?' mean?", 
-                options: ["Where is it?", "How are you?", "What time is it?"], 
+                options: ["Where is it?", "How are you?", "What time is it?", "How is it?"], 
                 answer: "How are you?", 
                 audio: "como_estas" 
             },
             { 
                 question: "What does 'Adiós' mean?", 
-                options: ["Please", "Goodbye", "Hello"], 
+                options: ["Please", "Goodbye", "Hello","Welcome!"], 
                 answer: "Goodbye", 
                 audio: "adios" 
             }

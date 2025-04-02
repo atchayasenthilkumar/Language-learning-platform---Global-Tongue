@@ -12,7 +12,7 @@
             padding: 20px;
         }
         .quiz-container {
-            background: blue700;
+            background: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -30,10 +30,23 @@
             background-color: lightblue;
         }
         .options button:hover {
-            background-color: lightblue;
+            background-color: #87CEEB;
         }
         .correct { background-color: #8bc34a !important; }
         .incorrect { background-color: #f44336 !important; }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2563EB;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #1D4ED8;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +54,9 @@
         <h2 id="question">Loading...</h2>
         <div class="options" id="options"></div>
         <p id="score" style="margin-top: 20px;"></p>
+        <a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/selectlang.html" class="back-button">Back</a>
     </div>
+
     <script>
         const quizData = [
             { question: "What is the Hiragana for 'Hello'?", options: ["こんにちは", "さようなら", "ありがとう", "すみません"], answer: "こんにちは" },

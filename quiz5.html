@@ -17,6 +17,9 @@
         <div id="score" class="text-lg font-bold mt-6">Score: 0</div>
         <div id="result" class="text-xl font-bold mt-6 hidden"></div>
         <button id="restart" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hidden" onclick="restartQuiz()">Restart</button>
+<button type ="button" class="px-6 py-2 bg-blue-500 text-white rounded">
+<a href="file:///C:/Users/ATCHAYA%20S/Desktop/Full%20STACK/language%20learning%20website/selectlang.html">Back
+</button>
     </div>
 
     <script>
@@ -31,10 +34,10 @@
         });
 
         const quizData = [
-            { question: "What does 'Bonjour' mean?", options: ["Hello", "Goodbye", "Please"], answer: "Hello" },
-            { question: "What does 'Merci' mean?", options: ["Yes", "Thank you", "Excuse me"], answer: "Thank you" },
-            { question: "What does 'Où est la gare?' mean?", options: ["Where is it?", "Where is the train station?", "What time is it?"], answer: "Where is the train station?" },
-            { question: "What does 'Adieu' mean?", options: ["Please", "Goodbye", "Hello"], answer: "Goodbye" }
+            { question: "What does 'Bonjour' mean?", options: ["Hello", "Goodbye", "Please","Welcome!"], answer: "Hello" },
+            { question: "What does 'Merci' mean?", options: ["Yes", "Thank you", "Excuse me" ,"Please"], answer: "Thank you" },
+            { question: "What does 'Où est la gare?' mean?", options: ["Where is it?", "Where is the train station?", "How is it?", "What time is it?"], answer: "Where is the train station?" },
+            { question: "What does 'Adieu' mean?", options: ["Please", "Goodbye", "Hello", "Welcome!"], answer: "Goodbye" }
         ];
 
         let currentQuestion = 0;
