@@ -1,22 +1,20 @@
 # Language-learning-platform-GlobalTongue🔠📚
 
+GlobalTongue is a fun, free, and effective language-learning app that helps users learn over 40 languages through quick, interactive lessons.  
+It is the clone app of Duolingo.
 
-GlobalTongue is a fun, free, and effective language-learning app that helps users learn over 40 languages through quick, interactive lessons.
-It is the clone app of duolingo.
+<video src="https://raw.githubusercontent.com/atchayasenthilkumar/Language-learning-platform---Global-Tongue/main/Global%20Tongue.mp4" controls width="600"></video>
 
-<video src="https://github.com/atchayasenthilkumar/Language-learning-platform---Global-Tongue/blob/main/Global%20Tongue.mp4"></video>
-<h2><u>🖥️Key Features</u></h2>
+<h2><u>🖥️ Key Features</u></h2>
 
+**✅ Multiple Choice Questions** - Instead of just displaying sentences, users could select the correct translation.  
 
+**✅ Audio Pronunciation** - Add audio playback for each sentence to improve listening skills.  
 
-**✅Multiple Choice Questions** - Instead of just displaying sentences, users could select the correct translation.
+**✅ Typing Practice** - Users could type out the correct translation to reinforce learning.  
 
-**✅Audio Pronunciation** - Add audio playback for each sentence to improve listening skills.
+**✅ Gamification** - Introduce points, levels, and streaks to keep users engaged.  
 
-**✅Typing Practice** - Users could type out the correct translation to reinforce learning.
+**✅ User Profiles & Progress Tracking** - Save user progress with local storage or a backend.  
 
-**✅Gamification** - Introduce points, levels, and streaks to keep users engaged.
-
-**✅User Profiles & Progress Tracking** - Save user progress with local storage or a backend.
-
-**✅Flashcards & Spaced Repetition** - Implement an SRS (Spaced Repetition System) to improve long-term retention.
+**✅ Flashcards & Spaced Repetition** - Implement an SRS (Spaced Repetition System) to improve long-term retention.  
