@@ -4,6 +4,7 @@
 GlobalTongue is a fun, free, and effective language-learning app that helps users learn over 40 languages through quick, interactive lessons.
 It is the clone app of duolingo.
 
+<video src="https://github.com/atchayasenthilkumar/Language-learning-platform---Global-Tongue/blob/main/Global%20Tongue.mp4"></video>
 <h2><u>🖥️Key Features</u></h2>
 
 
